@@ -5,6 +5,12 @@ use strict;
 
 use Data::Dumper;
 
+=pod
+
+Parameters
+
+=cut
+
 # How many doors
 # must be at least 3
 my $TUPLET_SIZE = 10;
@@ -15,9 +21,18 @@ my $ITERATIONS = 1000;
 # constant vs. changing
 my $USER_CHOICE = 'constant';
 
+
+
+
 # What is being measured. The whole point of the script
+# DO NOT CHANGE THIS VALUE
 my $AMOUNT_OF_CORRECT_GUESSES = 0;
 
+=pod
+
+Compile a set of void doors and place the prize behind a random one
+
+=cut
 
 sub get_randomized_tuplet {
 	my $tuplet_size = shift;
