@@ -13,13 +13,13 @@ Parameters
 
 # How many doors
 # must be at least 3
-my $TUPLET_SIZE = 10;
+my $TUPLET_SIZE = 3;
 
 # How many rounds to play
 my $ITERATIONS = 1000;
 
 # constant vs. changing
-my $USER_CHOICE = 'constant';
+my $USER_CHOICE = 'changing';
 
 
 
@@ -102,7 +102,9 @@ sub main {
 			# User selects one random remaining door if configured so
 			# otherwise sticks with door1
 			if ($USER_CHOICE eq 'changing') {
-				my @remaining_doors = keys %{$randomized_tuplet_href};
+				# grep ne $selected_door is important because
+				# the user choice is a changing one
+				my @remaining_doors = grep {$_ ne $selected_door} keys %{$randomized_tuplet_href};
 				my $random_index_of_remaining_list = int(rand(scalar @remaining_doors));
 				$selected_door = $remaining_doors[$random_index_of_remaining_list];
 			}
